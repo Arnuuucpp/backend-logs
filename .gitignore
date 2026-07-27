@@ -1,0 +1,11 @@
+# Ignore node_modules in ANY lecture folder
+node_modules/
+**/node_modules/
+
+# Ignore environment variables / secrets
+.env
+*.env
+
+# Ignore OS junk files
+.DS_Store
+Thumbs.db
