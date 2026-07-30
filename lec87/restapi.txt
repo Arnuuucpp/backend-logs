@@ -1,0 +1,14 @@
+what are rest api
+
+it is set of rules and protocols(http and https) by  which our frontend  and backend can communicate
+
+communication ke basis par method decide hogi   
+
+get - server se kuch mangwane ke liye 
+post - kuch create krne keliye on  server side
+put - to update 
+patch - updates a part of the server
+delete - deletes a  resource
+
+#NOTE:detailed notes in lec87 files
+
