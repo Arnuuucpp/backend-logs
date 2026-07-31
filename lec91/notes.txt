@@ -9,6 +9,18 @@ used to perform CRUD operations on the data in the database. The model is create
 
 
 EXTRA'S
+
+* Status Codes
+Quick mapping to CRUD:
+
+Operation	Success Code
+GET               	200
+POST (create)	    201
+PATCH/PUT (update)	200
+DELETE	            204
+
+
+
 * node.js vs express.js
 node.js is a runtime environment that allows you to run JavaScript code on the server-side. It provides a set of built-in modules and APIs for building server-side applications. Express.js, on the other hand, is a web application framework built on top of Node.js. It simplifies the process of building web applications by providing a set of features and tools for handling HTTP requests, routing, middleware, and more.
 
