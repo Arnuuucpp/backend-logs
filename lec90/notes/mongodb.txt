@@ -1,0 +1,8 @@
+CLUSTER => storage +  processor
+
+Database
+
+cloud we're using : Mongodb Altas
+
+mongoose is a package 
+npm i mongoose
