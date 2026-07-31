@@ -1,0 +1,16 @@
+Schema
+we have a schema for our data model. The schema defines the structure of the documents in a collection. It specifies the fields, their types, and any validation rules that should be applied to the data.
+
+it follows a folder structure where we have a models folder that contains the schema definition for our data model. The schema is defined using Mongoose, which is an Object Data Modeling (ODM) library for MongoDB and Node.js. 
+
+MODEL 
+used to perform CRUD operations on the data in the database. The model is created using the schema and provides an interface for interacting with the data. It allows us to create, read, update, and delete documents in the collection.
+
+
+
+EXTRA'S
+* node.js vs express.js
+node.js is a runtime environment that allows you to run JavaScript code on the server-side. It provides a set of built-in modules and APIs for building server-side applications. Express.js, on the other hand, is a web application framework built on top of Node.js. It simplifies the process of building web applications by providing a set of features and tools for handling HTTP requests, routing, middleware, and more.
+
+
+
