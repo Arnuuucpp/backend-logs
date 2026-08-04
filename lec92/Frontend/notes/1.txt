@@ -1,0 +1,3 @@
+whenever  our state variable is changed using  the axios.get data the component(App) in  which that state variableis  created...that component gets re render's everytime the state variable changes
+
+to solve this problem we  use  useEffect which is a sideeffect runs only one time as the component render
