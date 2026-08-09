@@ -5,7 +5,6 @@ const noteSchema = new mongoose.Schema({
     description:String,
 })
 
-const noteModel = mongoose.model("notes",noteSchema)
-//this "notes" strinng is the name of collection of same format data stored in mongoDB 
+const noteModel = mongoose.model("notes",noteSchema)//this "notes" string is the name of collection of same format data stored in mongoDB 
 
 module.exports = noteModel
