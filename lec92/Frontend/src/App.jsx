@@ -26,6 +26,8 @@ const App = () => {
         </header>
 
         <main className="mt-8">
+          <input type="text" placeholder="enter test title" />
+          <input type="text" placeholder="enter test description" />
           {loading ? (
             <div className="flex items-center justify-center py-20">
               <div className="w-12 h-12 border-4 border-t-transparent border-white/30 rounded-full animate-spin" />
