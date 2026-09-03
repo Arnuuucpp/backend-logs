@@ -2,7 +2,7 @@ const express = require("express")
 const app = express()
 const cors = require("cors")
 
-app.use(cors())
+app.use(cors()) //this middleware is  for connecting backend with frontend
 app.use(express.json())  //middelware is express.json()
 
 const noteModel = require("./models/note.model")

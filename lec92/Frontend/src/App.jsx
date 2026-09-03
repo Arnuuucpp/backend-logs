@@ -25,9 +25,20 @@ const App = () => {
           </div>
         </header>
 
-        <main className="mt-8">
-          <input type="text" placeholder="enter test title" />
-          <input type="text" placeholder="enter test description" />
+        <main className="mt-8 gap-1">
+          <div className="mb-8 flex gap-2">
+            <input
+              className="border-2 border-amber-100 rounded-2xl p-2 text-sm"
+              type="text"
+              placeholder="enter test title"
+            />
+            <input
+              className="border-2 border-amber-100 rounded-2xl p-2 text-sm"
+              type="text"
+              placeholder="enter test description"
+            />
+            <button  className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl px-6 py-4 cursor-pointer shadow-lg transform hover:scale-105 transition">Create Note</button>
+          </div>
           {loading ? (
             <div className="flex items-center justify-center py-20">
               <div className="w-12 h-12 border-4 border-t-transparent border-white/30 rounded-full animate-spin" />
