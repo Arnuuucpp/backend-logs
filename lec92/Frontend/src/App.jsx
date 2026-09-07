@@ -15,6 +15,14 @@ const App = () => {
       .finally(() => setLoading(false));
   }, []);
 
+  function handleSubmit(e){
+    e.preventDefault()
+    const {title,description} = e.target.values
+    console.log(title.value,description.value)
+  }
+
+  }
+
   return (
     <div className="min-h-screen bg-linear-to-b from-black via-neutral-900 to-zinc-900 text-white flex items-start justify-center py-12 px-4">
       <div className="w-full max-w-6xl">
@@ -26,7 +34,7 @@ const App = () => {
         </header>
 
         <main className="mt-8 gap-1">
-          <div className="mb-8 flex gap-2">
+          <form className="mb-8 flex gap-2" onSubmit={handleSubmit}>
             <input
               className="border-2 border-amber-100 rounded-2xl p-2 text-sm"
               type="text"
@@ -38,7 +46,7 @@ const App = () => {
               placeholder="enter test description"
             />
             <button  className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl px-6 py-4 cursor-pointer shadow-lg transform hover:scale-105 transition">Create Note</button>
-          </div>
+          </form>
           {loading ? (
             <div className="flex items-center justify-center py-20">
               <div className="w-12 h-12 border-4 border-t-transparent border-white/30 rounded-full animate-spin" />
@@ -71,6 +79,6 @@ const App = () => {
       </div>
     </div>
   );
-};
+
 
 export default App;
