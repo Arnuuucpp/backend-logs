@@ -7,33 +7,29 @@ const App = () => {
   const [notes, setnotes] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const { title, description } = e.target.elements
-    
-    const res = await axios.post("http://localhost:3000/api/notes", {
-      title: title.value,
-      description: description.value
-    });
-    console.log(title.value, description.value)
-    .then((res) => {
-      console.log(res.data)
-    })
-  };
 
-  async function fetchNotes(){
-    const res  = await axios.get("https://localhost:3000/api/notes")
-    .then((res)=>{
-      console.log(res.data)
-      setnotes(res.data.notes)
-    })
-    .catch((err) => console.error("Failed to fetch notes:", err))
+  const fetchNotes = async () => {
+    try {
+      const res = await axios.get("http://localhost:3000/api/notes")
+      console.log(res.data.note)
+      setnotes(res.data.note)
+    } catch (error) {
+      console.error("failed to fetch notes", error)
+    }
+    finally {
+      setLoading(false);
+    }
   }
-
 
   useEffect(() => {
     fetchNotes();
   }, []);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const { title, description } = e.target.elements
+    console.log(title.value, description.value)
+  }
 
   return (
     <>
@@ -49,16 +45,18 @@ const App = () => {
           <main className="mt-8 gap-1">
             <form className="mb-8 flex gap-2" onSubmit={handleSubmit}>
               <input
+                name="title"
                 className="border-2 border-amber-100 rounded-2xl p-2 text-sm"
                 type="text"
                 placeholder="enter test title"
               />
               <input
+                name="description"
                 className="border-2 border-amber-100 rounded-2xl p-2 text-sm"
                 type="text"
                 placeholder="enter test description"
               />
-              <button className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl px-6 py-4 cursor-pointer shadow-lg transform hover:scale-105 transition">Create Note</button>
+              <button type="submit" className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl px-6 py-4 cursor-pointer shadow-lg transform hover:scale-105 transition">Create Note</button>
             </form>
             {loading ? (
               <div className="flex items-center justify-center py-20">
@@ -70,7 +68,9 @@ const App = () => {
               </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
                 {notes.map((e, idx) => (
+
                   <div
                     key={idx}
                     className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-6 shadow-lg transform hover:scale-105 transition"
