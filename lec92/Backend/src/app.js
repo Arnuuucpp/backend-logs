@@ -75,6 +75,8 @@ app.patch("/api/notes/:id",async (req,res)=>{
 })
 
 
-
+app.use('*',(res,req)=>{
+    res.send("404 not found")
+})
 
 module.exports = app

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import 'remixicon/fonts/remixicon.css'
 
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
   const fetchNotes = async () => {
     try {
       const res = await axios.get("http://localhost:3000/api/notes")
-      console.log(res.data.note)
+      // console.log(res.data.note)
       setnotes(res.data.note)
     } catch (error) {
       console.error("failed to fetch notes", error)
@@ -27,8 +27,29 @@ const App = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
+    // console.log(e.target.elements)
     const { title, description } = e.target.elements
-    console.log(title.value, description.value)
+    // console.log(title.value, description.value)
+
+    axios.post("http://localhost:3000/api/notes", {
+      title: title.value,
+      description: description.value
+    })
+      .then(res => 
+        // { console.log(res.data) },
+        fetchNotes(),
+      )
+  }
+
+  function handleDeleteNote(noteID){
+    console.log(noteID)
+
+    axios.delete("http://localhost:3000/api/notes/" + noteID)
+    .then(res => {alert(res.data.message)
+    },
+    fetchNotes()
+  )
+
   }
 
   return (
@@ -77,6 +98,11 @@ const App = () => {
                   >
                     <h2 className="text-lg font-semibold mb-2">{e.title}</h2>
                     <p className="text-gray-300">{e.description}</p>
+                    <button className="absolute px-4 py-2 mt-2 cursor-pointer  rounded-4xl right-0 bottom-2"
+                    onClick={()=>{
+                      handleDeleteNote(e._id)
+                    }}
+                    ><i className="ri-delete-bin-line"></i></button>
                   </div>
                 ))}
               </div>
